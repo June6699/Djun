@@ -52,3 +52,24 @@ data/session-secret.txt
 ```
 
 Both are ignored by git.
+
+## Cloudflare
+
+This app is configured for Cloudflare's OpenNext adapter. In Cloudflare Pages, use:
+
+```text
+Build command: npm run cloudflare:build
+Deploy command: npm run cloudflare:deploy
+Output directory: .open-next
+```
+
+Do not use `npx wrangler deploy` directly as the Pages deploy command. It can trigger Wrangler's interactive Next.js migration during the build and recreate transient config instead of using the committed `wrangler.jsonc` and `open-next.config.ts` files.
+
+For local Cloudflare preview, run:
+
+```powershell
+npm run cloudflare:build
+npx wrangler dev --port 51888
+```
+
+Note: the current CMS uses local SQLite, filesystem uploads, and `sharp` thumbnail generation. Those Node-local storage features are not persistent in Cloudflare Workers. A production Cloudflare deployment should migrate data to D1 and uploaded images to R2, or the app should be hosted on a Node server with persistent disk.

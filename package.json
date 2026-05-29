@@ -5,9 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "cloudflare:build": "opennextjs-cloudflare build",
+    "cloudflare:preview": "opennextjs-cloudflare preview",
+    "cloudflare:deploy": "opennextjs-cloudflare deploy",
+    "deploy": "npm run cloudflare:build && npm run cloudflare:deploy",
+    "preview": "npm run cloudflare:build && npm run cloudflare:preview"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",
@@ -21,6 +26,7 @@
     "zod": "^4.1.5"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.19.11",
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^24.2.0",
     "@types/react": "^19.2.6",
@@ -28,6 +34,7 @@
     "eslint": "^9.35.0",
     "eslint-config-next": "^16.2.6",
     "tailwindcss": "^4.3.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "wrangler": "^4.95.0"
   }
 }
