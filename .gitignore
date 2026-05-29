@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+build/
+
+# Local environment
+.env
+.env*.local
+
+# Local app data
+data/*.sqlite
+data/*.sqlite-*
+data/session-secret.txt
+public/uploads/originals/*
+public/uploads/thumbs/*
+!public/uploads/originals/.gitkeep
+!public/uploads/thumbs/.gitkeep
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Tooling cache
+.eslintcache
+.turbo/
+.vercel/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
