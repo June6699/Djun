@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  env: {
+    DJUN_DISABLE_CMS: process.env.DJUN_DISABLE_CMS ?? ""
+  },
   images: {
     unoptimized: true
   },

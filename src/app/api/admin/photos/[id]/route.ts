@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { deletePhoto, updatePhoto } from "@/lib/db";
-import { requireAdminResponse } from "@/lib/api";
+import { cmsUnavailableResponse, isCmsDisabled } from "@/lib/cloudflare-mode";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -17,6 +16,11 @@ const schema = z.object({
 });
 
 export async function PATCH(request: Request, context: { params: Promise<{ id: string }> }) {
+  if (isCmsDisabled()) {
+    return cmsUnavailableResponse();
+  }
+
+  const [{ requireAdminResponse }, { updatePhoto }] = await Promise.all([import("@/lib/api"), import("@/lib/db")]);
   const { response } = await requireAdminResponse();
   if (response) return response;
 
@@ -31,6 +35,11 @@ export async function PATCH(request: Request, context: { params: Promise<{ id: s
 }
 
 export async function DELETE(_: Request, context: { params: Promise<{ id: string }> }) {
+  if (isCmsDisabled()) {
+    return cmsUnavailableResponse();
+  }
+
+  const [{ requireAdminResponse }, { deletePhoto }] = await Promise.all([import("@/lib/api"), import("@/lib/db")]);
   const { response } = await requireAdminResponse();
   if (response) return response;
 

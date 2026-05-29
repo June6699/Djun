@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { requireAdminResponse } from "@/lib/api";
-import { updateProject } from "@/lib/db";
+import { cmsUnavailableResponse, isCmsDisabled } from "@/lib/cloudflare-mode";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -15,6 +14,11 @@ const schema = z.object({
 });
 
 export async function PUT(request: Request) {
+  if (isCmsDisabled()) {
+    return cmsUnavailableResponse();
+  }
+
+  const [{ requireAdminResponse }, { updateProject }] = await Promise.all([import("@/lib/api"), import("@/lib/db")]);
   const { response } = await requireAdminResponse();
   if (response) return response;
 

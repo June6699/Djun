@@ -2,8 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "djun",
   "main": ".open-next/worker.js",
+  "workers_dev": true,
   "compatibility_date": "2026-05-29",
   "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "DJUN_DISABLE_CMS": "1"
+  },
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"

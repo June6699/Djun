@@ -1,12 +1,19 @@
 import { NextResponse } from "next/server";
-import { requireAdminResponse } from "@/lib/api";
-import { saveUploadedFiles } from "@/lib/media";
-import { syncMediaLibrary } from "@/lib/db";
+import { cmsUnavailableResponse, isCmsDisabled } from "@/lib/cloudflare-mode";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
+  if (isCmsDisabled()) {
+    return cmsUnavailableResponse();
+  }
+
+  const [{ requireAdminResponse }, { saveUploadedFiles }, { syncMediaLibrary }] = await Promise.all([
+    import("@/lib/api"),
+    import("@/lib/media"),
+    import("@/lib/db")
+  ]);
   const { response } = await requireAdminResponse();
   if (response) return response;
 

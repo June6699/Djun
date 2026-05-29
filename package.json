@@ -8,7 +8,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
-    "cloudflare:build": "opennextjs-cloudflare build",
+    "cloudflare:build": "DJUN_DISABLE_CMS=1 opennextjs-cloudflare build",
     "cloudflare:preview": "opennextjs-cloudflare preview",
     "cloudflare:deploy": "opennextjs-cloudflare deploy",
     "deploy": "npm run cloudflare:build && npm run cloudflare:deploy",
