@@ -35,7 +35,7 @@ You can either upload images in `/admin` or copy images into that folder and pre
 public/uploads/thumbs
 ```
 
-The first run seeds demo crops from the reference screenshots in `效果图` when no local photos exist.
+The first run seeds curated Bing Wallpaper demo images from `public/demo-assets` when no local photos exist. Photo titles, captions, locations, and dates are initialized automatically and can be edited in `/admin`.
 
 ## Data
 

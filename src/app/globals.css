@@ -127,14 +127,32 @@ img {
   position: relative;
   min-height: 46dvh;
   border-radius: 0.2rem;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 34%),
-    #020202;
+  background: #020202;
   overflow: hidden;
 }
 
+.black-room-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(18px) saturate(1.08) brightness(0.62);
+  transform: scale(1.08);
+  opacity: 0.72;
+}
+
+.black-room-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 70% 35%, rgba(255, 255, 255, 0.16), transparent 26%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.88)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.55), transparent 58%);
+}
+
 .clock-readout {
+  z-index: 1;
   position: absolute;
   left: 1rem;
   top: 2rem;
@@ -145,6 +163,7 @@ img {
 }
 
 .floating-runtime {
+  z-index: 1;
   position: absolute;
   left: 1rem;
   bottom: 1.4rem;
@@ -342,7 +361,7 @@ img {
   left: 1rem;
   bottom: 3.7rem;
   z-index: 2;
-  max-width: 60%;
+  max-width: min(60%, calc(100% - 7.5rem));
   font-size: clamp(1rem, 1.8vw, 1.5rem);
   font-style: italic;
   text-shadow: 0 2px 22px rgba(0, 0, 0, 0.7);

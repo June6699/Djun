@@ -36,3 +36,4 @@ pnpm-debug.log*
 Thumbs.db
 .vscode/
 .idea/
+.codex/project-experience.md

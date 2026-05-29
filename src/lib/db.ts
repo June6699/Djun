@@ -80,97 +80,165 @@ const globalForDb = globalThis as unknown as {
 const defaultChapters = [
   {
     chapterNo: 1,
-    slug: "bromo",
-    titleEn: "BROMO",
-    titleZh: "布罗莫",
-    location: "East Java",
-    dateLabel: "04.29",
-    shortCopy: "surabaya · crater · viewpoint",
-    quote: "The volcano was breathing. We stood on its shoulder while the sky turned from coal to apricot.",
-    themeColor: "#cf4938",
-    accentColor: "#f3c65e",
-    backgroundTone: "#ce4637"
+    slug: "everest",
+    titleEn: "EVEREST",
+    titleZh: "珠峰",
+    location: "Sagarmatha",
+    dateLabel: "05.29",
+    shortCopy: "summit light / snow ridge / thin air",
+    quote: "The morning arrived as a blade of gold, shaving the summit out of the dark.",
+    themeColor: "#233247",
+    accentColor: "#f3c96b",
+    backgroundTone: "#d9d5c8"
   },
   {
     chapterNo: 2,
-    slug: "ijen",
-    titleEn: "IJEN",
-    titleZh: "伊真",
-    location: "East Java",
-    dateLabel: "04.27",
-    shortCopy: "blue fire · sulfur · lake",
-    quote: "A blue flame under a black sky, and a lake that looked like it remembered every storm.",
-    themeColor: "#183f4c",
-    accentColor: "#56bad2",
-    backgroundTone: "#d9d4c2"
+    slug: "hwaesong",
+    titleEn: "HWASEONG",
+    titleZh: "华城",
+    location: "Suwon",
+    dateLabel: "05.28",
+    shortCopy: "fortress wall / tiled roofs / spring stone",
+    quote: "A quiet wall held the city in place while roofs folded themselves into the hills.",
+    themeColor: "#334137",
+    accentColor: "#d9a45f",
+    backgroundTone: "#d4c7aa"
   },
   {
     chapterNo: 3,
-    slug: "uluwatu",
-    titleEn: "ULUWATU",
-    titleZh: "乌鲁瓦图",
-    location: "Bali",
-    dateLabel: "04.28",
-    shortCopy: "cliff temples & black sand",
-    quote: "Ocean wrote sermons into the cliff face, and the cliff face listened.",
-    themeColor: "#124149",
-    accentColor: "#2d8393",
-    backgroundTone: "#e1d9c6"
+    slug: "lupine",
+    titleEn: "LUPINE",
+    titleZh: "鲁冰花",
+    location: "Lake Tekapo",
+    dateLabel: "05.26",
+    shortCopy: "purple shore / cold lake / open sky",
+    quote: "The flowers made a soft riot at the waterline, and the lake kept its blue composure.",
+    themeColor: "#334063",
+    accentColor: "#c9a2ff",
+    backgroundTone: "#d8d2bf"
   },
   {
     chapterNo: 4,
-    slug: "ubud",
-    titleEn: "UBUD",
-    titleZh: "乌布",
-    location: "Bali",
-    dateLabel: "04.30",
-    shortCopy: "rice terraces · rain · quiet",
-    quote: "The green went on speaking even after the rain stopped.",
-    themeColor: "#273f25",
-    accentColor: "#9bb45a",
-    backgroundTone: "#d8cfac"
+    slug: "hawa-mahal",
+    titleEn: "HAWA MAHAL",
+    titleZh: "风之宫殿",
+    location: "Jaipur",
+    dateLabel: "05.25",
+    shortCopy: "pink facade / lattice air / afternoon heat",
+    quote: "Every window seemed to be listening for a breeze that had crossed the old city.",
+    themeColor: "#a54d4b",
+    accentColor: "#f0b07d",
+    backgroundTone: "#e0c2aa"
   },
   {
     chapterNo: 5,
-    slug: "nusa-penida",
-    titleEn: "NUSA PENIDA",
-    titleZh: "努沙佩尼达",
-    location: "Penida",
-    dateLabel: "05.01",
-    shortCopy: "limestone cliffs & turquoise",
-    quote: "Down five hundred steps cut into rock, the water was so clear it looked fake.",
-    themeColor: "#c09d69",
-    accentColor: "#277d8c",
-    backgroundTone: "#c19f69"
+    slug: "dolomites",
+    titleEn: "DOLOMITES",
+    titleZh: "多洛米蒂",
+    location: "South Tyrol",
+    dateLabel: "05.24",
+    shortCopy: "alpine teeth / meadow light / long road",
+    quote: "The mountains rose like pale architecture, too old to care about weather.",
+    themeColor: "#40513f",
+    accentColor: "#c7d46a",
+    backgroundTone: "#d7d0b6"
   },
   {
     chapterNo: 6,
-    slug: "seminyak",
-    titleEn: "SEMINYAK",
-    titleZh: "水明漾",
-    location: "Bali",
-    dateLabel: "05.02",
-    shortCopy: "street heat · sunset · neon",
-    quote: "The last beach day had a soft focus, like the city had turned into a postcard.",
-    themeColor: "#4b3a5f",
-    accentColor: "#f1778f",
-    backgroundTone: "#efe4d0"
+    slug: "kauehi",
+    titleEn: "KAUEHI",
+    titleZh: "考埃希",
+    location: "Tuamotu",
+    dateLabel: "05.22",
+    shortCopy: "lagoon ring / reef blue / coral quiet",
+    quote: "From above, the island looked like a thought drawn in turquoise ink.",
+    themeColor: "#17606d",
+    accentColor: "#74d7df",
+    backgroundTone: "#c7d5cf"
   },
   {
     chapterNo: 7,
-    slug: "singapore",
-    titleEn: "SINGAPORE",
-    titleZh: "新加坡",
-    location: "Transit",
-    dateLabel: "05.04",
-    shortCopy: "changi · marina bay · the way home",
-    quote: "The city was a shipping container turned inside out and dressed for a wedding.",
-    themeColor: "#101827",
-    accentColor: "#ff5b7c",
-    backgroundTone: "#101827"
+    slug: "sichuan-tea",
+    titleEn: "TEA RIDGES",
+    titleZh: "茶山",
+    location: "Sichuan",
+    dateLabel: "05.21",
+    shortCopy: "green contour / morning rows / wet leaves",
+    quote: "The hillside turned agriculture into calligraphy, line after line after line.",
+    themeColor: "#274d31",
+    accentColor: "#a8d46e",
+    backgroundTone: "#cfceb0"
+  },
+  {
+    chapterNo: 8,
+    slug: "lighthouse",
+    titleEn: "LIGHTHOUSE",
+    titleZh: "灯塔",
+    location: "Asturias",
+    dateLabel: "05.19",
+    shortCopy: "atlantic edge / white tower / salt wind",
+    quote: "The tower kept its small bright promise at the place where land ran out.",
+    themeColor: "#24445a",
+    accentColor: "#f2d16b",
+    backgroundTone: "#c9d0cb"
   }
 ];
 
+const defaultPhotoMetadata: Record<string, { title: string; caption: string; location: string; capturedAt: string }> = {
+  everest: {
+    title: "Summit Light",
+    caption: "珠穆朗玛峰峰顶在清晨雪光里浮出来，像一页被慢慢翻开的白色地图。",
+    location: "Sagarmatha National Park, Nepal",
+    capturedAt: "2026-05-29"
+  },
+  hwaesong: {
+    title: "Fortress Morning",
+    caption: "水原华城的城墙、屋檐和树影叠在一起，安静得很适合慢慢走。",
+    location: "Suwon, South Korea",
+    capturedAt: "2026-05-28"
+  },
+  lupine: {
+    title: "Purple Shore",
+    caption: "湖边的鲁冰花把冷蓝色的水岸点亮，整张照片像一段柔软的间奏。",
+    location: "Lake Tekapo, New Zealand",
+    capturedAt: "2026-05-26"
+  },
+  "hawa-mahal": {
+    title: "Pink Facade",
+    caption: "风之宫殿的窗格密密铺开，粉色墙面把午后的热气也变得漂亮。",
+    location: "Jaipur, India",
+    capturedAt: "2026-05-25"
+  },
+  dolomites: {
+    title: "Alpine Teeth",
+    caption: "多洛米蒂的山脊像被削亮的石头，草甸和云影把画面压得很稳。",
+    location: "South Tyrol, Italy",
+    capturedAt: "2026-05-24"
+  },
+  kauehi: {
+    title: "Lagoon Ring",
+    caption: "考埃希环礁从高处看像一枚蓝绿色的印章，海水把边界画得很轻。",
+    location: "Tuamotu Archipelago, French Polynesia",
+    capturedAt: "2026-05-22"
+  },
+  "sichuan-tea": {
+    title: "Tea Contours",
+    caption: "四川茶山的行列绕着坡面展开，绿色的线条像手写字一样连绵。",
+    location: "Sichuan, China",
+    capturedAt: "2026-05-21"
+  },
+  lighthouse: {
+    title: "Atlantic Beacon",
+    caption: "西班牙海岸边的白色灯塔站在风里，替陆地守住最后一段边缘。",
+    location: "Asturias, Spain",
+    capturedAt: "2026-05-19"
+  }
+};
+
+function metadataForFile(relativePath: string) {
+  const normalized = relativePath.toLowerCase();
+  return Object.entries(defaultPhotoMetadata).find(([slug]) => normalized.includes(slug))?.[1] ?? null;
+}
 function id(prefix: string) {
   return `${prefix}_${crypto.randomBytes(8).toString("hex")}`;
 }
@@ -272,8 +340,8 @@ function migrate(db: Db) {
 
 function seedStaticData(db: Db) {
   const timestamp = now();
-  const project = db.prepare("SELECT id FROM projects WHERE slug = ?").get("bali-2026") as { id: string } | undefined;
-  const projectId = project?.id ?? "project_bali_2026";
+  const project = db.prepare("SELECT id FROM projects WHERE slug = ?").get("world-light-2026") as { id: string } | undefined;
+  const projectId = project?.id ?? "project_world_light_2026";
 
   if (!project) {
     db.prepare(
@@ -282,10 +350,10 @@ function seedStaticData(db: Db) {
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     ).run(
       projectId,
-      "bali-2026",
-      "BALI 2026",
-      "TRAVEL JOURNAL",
-      "A local film-style travel journal with chapter playback and curated contact sheets.",
+      "world-light-2026",
+      "WORLD LIGHT",
+      "BING WALLPAPER EDITION",
+      "A cinematic wall of borrowed light, seeded from Bing Wallpaper landscapes and curated as a local travel journal.",
       "film-journal",
       28,
       5,
@@ -491,6 +559,7 @@ function insertOrUpdatePhoto(db: Db, file: ScannedFile, projectId: string) {
   }
 
   const chapterId = chapterForFile(db, file.relativePath, projectId);
+  const photoMetadata = metadataForFile(file.relativePath);
   const orderIndex = nextPhotoOrder(db, projectId, chapterId);
   const photoId = id("photo");
   db.prepare(
@@ -503,10 +572,10 @@ function insertOrUpdatePhoto(db: Db, file: ScannedFile, projectId: string) {
     projectId,
     chapterId,
     orderIndex,
-    defaultPhotoTitle(file.relativePath),
-    "",
-    "",
-    "",
+    photoMetadata?.title ?? defaultPhotoTitle(file.relativePath),
+    photoMetadata?.caption ?? "",
+    photoMetadata?.location ?? "",
+    photoMetadata?.capturedAt ?? "",
     file.sourceFolder,
     file.publicPath,
     file.thumbPath,

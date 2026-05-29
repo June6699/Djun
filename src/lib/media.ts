@@ -4,18 +4,19 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
-import { effectSourceDir, ensureDirectory, ensureStorage, originalsDir, thumbsDir, toPosixPath } from "./paths";
+import { demoAssetsDir, ensureDirectory, ensureStorage, originalsDir, thumbsDir, toPosixPath } from "./paths";
 
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 
 const DEMO_ASSETS = [
-  "bromo",
-  "ijen",
-  "uluwatu",
-  "ubud",
-  "nusa-penida",
-  "seminyak",
-  "singapore"
+  { slug: "everest", file: "01-everest.jpg" },
+  { slug: "hwaesong", file: "02-hwaesong.jpg" },
+  { slug: "lupine", file: "03-lupine.jpg" },
+  { slug: "hawa-mahal", file: "04-hawa-mahal.jpg" },
+  { slug: "dolomites", file: "05-dolomites.jpg" },
+  { slug: "kauehi", file: "06-kauehi.jpg" },
+  { slug: "sichuan-tea", file: "07-sichuan-tea.jpg" },
+  { slug: "lighthouse", file: "08-spain-lighthouse.jpg" }
 ];
 
 export type ScannedFile = {
@@ -160,51 +161,27 @@ export async function saveUploadedFiles(files: File[]) {
 export async function ensureDemoAssets() {
   ensureStorage();
 
-  if (listImages(originalsDir).length > 0 || !fs.existsSync(effectSourceDir)) {
+  if (listImages(originalsDir).length > 0 || !fs.existsSync(demoAssetsDir)) {
     return false;
   }
 
-  const sourceFiles = listImages(effectSourceDir)
-    .filter((file) => !path.basename(file).includes("副本"))
-    .sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
-
-  if (sourceFiles.length === 0) {
-    return false;
-  }
-
-  const chapterSources = DEMO_ASSETS.map((slug, index) => {
-    const sourceIndex = Math.min(index + 1, sourceFiles.length - 1);
-    return { slug, source: sourceFiles[sourceIndex] ?? sourceFiles[0] };
-  });
-
-  for (let index = 0; index < chapterSources.length; index += 1) {
-    const { slug, source } = chapterSources[index];
-    const target = path.join(originalsDir, `${String(index + 1).padStart(2, "0")}-${slug}.jpg`);
-    const metadata = await sharp(source).metadata();
-    const width = metadata.width ?? 1264;
-    const height = metadata.height ?? 2780;
-    const left = Math.min(Math.floor(width * 0.49), width - 320);
-    const top = Math.min(Math.floor(height * 0.32), height - 480);
-    const cropWidth = width - left;
-    const cropHeight = Math.min(Math.floor(height * 0.31), height - top);
-
-    try {
-      await sharp(source)
-        .extract({ left, top, width: cropWidth, height: cropHeight })
-        .resize({ width: 1500, height: 980, fit: "cover" })
-        .jpeg({ quality: 88, mozjpeg: true })
-        .toFile(target);
-    } catch {
-      await sharp(source)
-        .resize({ width: 1500, height: 980, fit: "cover" })
-        .jpeg({ quality: 88, mozjpeg: true })
-        .toFile(target);
+  for (let index = 0; index < DEMO_ASSETS.length; index += 1) {
+    const asset = DEMO_ASSETS[index];
+    const source = path.join(demoAssetsDir, asset.file);
+    if (!fs.existsSync(source)) {
+      continue;
     }
+
+    const target = path.join(originalsDir, `${String(index + 1).padStart(2, "0")}-${asset.slug}.jpg`);
+    await sharp(source)
+      .resize({ width: 1800, height: 1160, fit: "cover" })
+      .jpeg({ quality: 88, mozjpeg: true })
+      .toFile(target);
   }
 
-  return true;
+  return listImages(originalsDir).length > 0;
 }
 
 export function getDemoSlugs() {
-  return DEMO_ASSETS;
+  return DEMO_ASSETS.map((asset) => asset.slug);
 }

@@ -193,6 +193,18 @@ export function TravelPlayer({ initialState }: Props) {
       </header>
 
       <section className="black-room" aria-label="Travel journal playback">
+        {activePhoto ? (
+          <Image
+            src={activePhoto.originalPath}
+            alt=""
+            fill
+            priority
+            unoptimized
+            sizes="100vw"
+            className="black-room-media"
+          />
+        ) : null}
+        <div className="black-room-vignette" />
         <div className="clock-readout">{clock}</div>
         <div className="floating-runtime">{Math.ceil((chapters.length - chapterIndex) * chapterSeconds - chapterElapsed)}s</div>
       </section>
